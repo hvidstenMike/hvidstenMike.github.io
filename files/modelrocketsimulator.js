@@ -8,7 +8,7 @@ var canvas, ctx;
 var rocketY;
 var firstRenderTime;
 var altitude;
-var landingTime; 
+var landingTime, landingV; 
 var time = [], position=[], velocity=[];
 
 window.requestAnimationFrame = window.requestAnimationFrame
@@ -128,6 +128,7 @@ function updateAnimation(timestamp) {
 	let elapsedTime = ((Date.now() - firstRenderTime)/1000);
     // Compute index in time array where elapsedTime is located	
 	var indexT = Math.round(time.length*(elapsedTime/landingTime));
+	
 	//console.log(elapsedTime, indexT);
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	ctx.beginPath();
@@ -142,7 +143,7 @@ function updateAnimation(timestamp) {
 	}
 	drawRocket(0,position[indexT], canvasScale);
 	drawHouse(canvasScale);
-	drawText(velocity[indexT]);
+	drawText(indexT);
 	
 	if(indexT < time.length){
 		window.requestAnimationFrame(updateAnimation);
@@ -238,16 +239,20 @@ function drawHouse(canvasScale){
 	ctx.restore();
 }
 
-function drawText(v){
+function drawText(indexT){
 	ctx.save();
 	ctx.font = "10px Arial";
 	ctx.fillStyle = "white";
 	ctx.fillText("Altitude:".concat(altitude.toString()," m"), 10, 10);
-	
-	if(!isNaN(v)){
-		v = v.toFixed(1);
-		ctx.fillText("Velocity:".concat(v.toString()," m/sec"), 10, 20);
+	var v = 0.0;
+	if(indexT >= velocity.length){
+		v = landingV;
 	}
+	else {
+		v = velocity[indexT];
+	}
+	v = Number(v).toFixed(1);
+	ctx.fillText("Velocity:".concat(v.toString()," m/sec"), 10, 20);
 	ctx.restore();
 }
 
@@ -326,7 +331,7 @@ function launch()
 	}
 	
 	landingTime = time[i-1];
-	var landingV = velocity[i-1];
+	landingV = velocity[i-1];
 	landingV = landingV.toFixed(1);
 	//console.log(i, landingTime, landingV);
 	
