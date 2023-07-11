@@ -4,13 +4,12 @@ var cd1 = 0.5;	// Drag coefficient of rocket.
 var cd2 = 0.75; // Drag coefficient of parachute. Value is from http://www.rocketshoppe.com/info/The_Mathematics_of_Parachutes.pdf
 var freq = 100;
 var dt   = 1/freq;
-var simTime;/* 
-var canvas, ctx; */
+var canvas, ctx; 
 var rocketY;
 var firstRenderTime;
-var altitude = 0.0;
-var landingTime = 5.0; 
-var time = [], position=[];
+var altitude;
+var landingTime; 
+var time = [], position=[], velocity=[];
 
 window.requestAnimationFrame = window.requestAnimationFrame
     || window.mozRequestAnimationFrame
@@ -97,6 +96,11 @@ function chart(chartdata,id,charttitle,xaxistitle,yaxistitle,yfloor,xceiling)
 function start()
 {
 	$("#container").css({"opacity":.5});
+	altitude = 0.0;
+	landingTime = 5.0; 
+	time = [];
+	position=[];
+	velocity=[];
 	launch();
 }
 
@@ -130,7 +134,7 @@ function updateAnimation(timestamp) {
 	
 	
 	var canvasScale;
-	if(altitude > 0.2){
+	if(altitude > 0.1){
 		canvasScale = 1.1*altitude;
 	}
 	else {
@@ -138,7 +142,7 @@ function updateAnimation(timestamp) {
 	}
 	drawRocket(0,position[indexT], canvasScale);
 	drawHouse(canvasScale);
-	drawText();
+	drawText(velocity[indexT]);
 	
 	if(indexT < time.length){
 		window.requestAnimationFrame(updateAnimation);
@@ -169,7 +173,6 @@ function drawHouse(canvasScale){
     ctx.strokeStyle="black";
     ctx.lineWidth="3";
 	var houseScale = canvasScale/11;
-	console.log(canvasScale);
 	ctx.scale(canvas.width/800/houseScale, canvas.height/800/houseScale);
 	// Experimentally Derived!!
 	ctx.translate(47*canvasScale-100, 72*canvasScale-560);
@@ -235,11 +238,16 @@ function drawHouse(canvasScale){
 	ctx.restore();
 }
 
-function drawText(){
+function drawText(v){
 	ctx.save();
 	ctx.font = "10px Arial";
 	ctx.fillStyle = "white";
 	ctx.fillText("Altitude:".concat(altitude.toString()," m"), 10, 10);
+	
+	if(!isNaN(v)){
+		v = v.toFixed(1);
+		ctx.fillText("Velocity:".concat(v.toString()," m/sec"), 10, 20);
+	}
 	ctx.restore();
 }
 
@@ -283,10 +291,10 @@ function launch()
 	var specificImpulse = totalImpulse/(fuelM*g);
 	
 	var thrust = [], mass = [], drag; 
-	var accel=[], velocity = [], gees=[]
+	var accel=[], gees=[]
 	thrust[0] = 0.0; mass[0] = totalM; 
-	accel[0] = 0.0;  velocity[0] = 0.0; gees[0]=0.0;
-	time[0]= 0.0; position[0]= 0.0;
+	accel[0] = 0.0; gees[0]=0.0;
+	time[0]= 0.0; velocity[0] = 0.0; position[0]= 0.0;
     var totalGenImpulse = 0.0;
 	
 	var i;
@@ -300,6 +308,10 @@ function launch()
 		gees[i] = Math.abs(accel[i]/g+1);
 		velocity[i] = velocity[i-1]+ integrate(accel[i-1], accel[i], dt);
 		position[i] = position[i-1]+ integrate(velocity[i-1], velocity[i], dt);
+		if(position[i] <0.0){
+			velocity[i]=0.0;
+			position[i]=0.0;
+		}
 	}
 	//console.log(totalGenImpulse);
 	while(position[i-1]>0.0){
@@ -307,7 +319,7 @@ function launch()
 		thrust[i]= 0.0;
 		mass[i] = totalM - fuelM;
 		accel[i]= -g;
-		gees[i] = Math.abs(accel[i]/g+1);
+		gees[i] = Math.abs(accel[i]/g);
 		velocity[i] = velocity[i-1]+ integrate(accel[i-1], accel[i], dt);
 		position[i] = position[i-1]+ integrate(velocity[i-1], velocity[i], dt);
 		i=i+1;
@@ -319,7 +331,7 @@ function launch()
 	//console.log(i, landingTime, landingV);
 	
 	altitude = Math.max(...position);
-	altitude = altitude.toFixed(1);
+	altitude = altitude.toFixed(2);
 	//console.log(altitude);
 	
 	var maxG = Math.max(...gees);
