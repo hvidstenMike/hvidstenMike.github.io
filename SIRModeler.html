@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <title>SIR Modeler</title>
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    <script>
+      function focusTest(el)
+      {
+       el.select();
+      }
+    </script>
+    <link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css">
+    <script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+  </head>
+  <body>
+	<p>The SIR model is a simple mathematical description of the spread of a disease in a 
+population. This model divides the (fixed) population of $N$ individuals into three "compartments" which 
+may vary as a function of time, $t$:</p>
+<ul>
+<li>$S(t)$ are those susceptible but not yet infected with the disease;</li>
+<li>$I(t)$ is the number of infectious individuals;</li>
+<li>$R(t)$ are those individuals who have been 'removed' from the disease and now have immunity to it.</li>
+</ul>
+<p>The SIR model describes the change in the population of each of these compartments 
+in terms of two parameters, $a$ and $b$. 
+The parameter $a$ describes the effective <em>contact rate</em> of the disease: an infected individual 
+comes into contact with $a N$ other individuals per unit time (of which the fraction that are susceptible to 
+contracting the disease is $S/N$). $b$ is the mean recovery rate: that is, $1/b$ is the mean period of 
+time during which an infected individual can pass it on.</p>
+<p>The differential equations describing this model are:</p>
+<p>\begin{align*}
+\frac{\mathrm{d}S}{\mathrm{d}t} &amp;= -a S I,\\
+\frac{\mathrm{d}I}{\mathrm{d}t} &amp;= a S I - b I,\\
+\frac{\mathrm{d}R}{\mathrm{d}t} &amp;= b I.
+\end{align*}</p>
+<p>
+Below is an interactive graph of the solution for $S(t)$, $I(t)$, and $R(t)$ for parameters $a=0.0005$ and 
+$b=0.12$. These parameters were taken from the Ebola outbreak in Africa in the 1970's.
+</p>
+
+    <br>
+    <div id="box" class="jxgbox" style="width: 500px; height: 500px;"> </div>
+    <script type="text/javascript">
+      // Initialise board
+    	board = JXG.JSXGraph.initBoard('box', {boundingbox: [-2.5, 11000.5, 30.5, -500.5], axis: true, grid: false});
+
+    	// Define sliders to dynamically change parameters of the equations and create text elements to describe them
+    	var a = board.create('slider', [[20.0,9500.0],[25.0,9500.0],[0.0,0.0005,0.01]],{name:'a',strokeColor:'black',fillColor:'black', digits:'4'});
+    	//a.on("drag", function() {board.update();});
+	var at = board.create('text', [20,9200, "SIR Param: a"], {fixed:true});
+    	var b = board.create('slider', [[20.0,8800.0],[25.0,8800.0],[0.0,0.12,1.0]],{name:'b',strokeColor:'black',fillColor:'black'});
+    	//b.on("drag", function() {updateAll();});
+	var bt = board.create('text', [20,8400, "SIR Param: b"], {fixed:true});
+
+    	// Labels for Curves
+    	board.create('text', [1, 9900, 'Susceptible'], {color:'blue'});
+    	board.create('text', [1, 9600, 'Infected'], {color:'red'});
+    	board.create('text', [1, 9300, 'Removed'], {color:'green'});
+
+
+    	// Variables for the JXG.Curves
+    	var g3 = null;
+    	var g4 = null;
+      var g5 = null; 
+
+	// Initial Populations
+	initS = 9980;
+	initI = 20;
+	initR = 0;
+
+    	// Initialise ODE and solve it with JXG.Math.Numerics.rungeKutta()
+    	function ode() {
+        // evaluation interval
+        var I = [0, 25];
+        // Number of steps. 1000 should be enough
+        var N = 5000;
+
+        var aSIR = a.Value();//0.0005;
+        var bSIR = b.Value();//0.12;
+        
+	  // Right hand side of the ODE dx/dt = f(t, x)
+        var f = function(t, x) {
+//console.log("in ode(), a = "+aSIR + ", b = "+bSIR);
+
+            var y = [];
+            y[0] = -aSIR*x[0]*x[1]; // S' = -aSI
+            y[1] = aSIR*x[0]*x[1] - bSIR*x[1];  // aSI - bI
+		y[2] = bSIR*x[1];  // bI
+
+            return y;
+        }
+
+        // Initial value
+        var x0 = [initS, initI, initR];
+
+        // Solve ode
+        var data = JXG.Math.Numerics.rungeKutta('rk4', x0, I, N, f);
+
+        // to plot the data against time we need the times where the equations were solved
+        var t = [];
+        var q = I[0];
+        var h = (I[1]-I[0])/N;
+        for(var i=0; i<data.length; i++) {
+            data[i].push(q);
+            q += h;
+        }
+
+        return data;
+    	}
+    
+    	// get data points
+    	var data = ode();
+
+    	// copy data to arrays so we can plot it using JXG.Curve
+    	var t = [];
+    	var data_S = [];
+    	var data_I = [];
+	var data_R = [];
+    
+	for(var i=0; i<data.length; i++) {
+        t[i] = data[i][3];
+        data_S[i] = data[i][0];
+        data_I[i] = data[i][1];
+	  data_R[i] = data[i][2];
+    	}
+    
+    	// Plot S Curve
+    	g3 = board.create('curve', [t, data_S], {strokeColor:'blue', strokeWidth:'2px'});
+    	g3.updateDataArray = function() {
+        var data = ode();
+        this.dataX = [];
+        this.dataY = [];
+        for(var i=0; i<data.length; i++) {
+            this.dataX[i] = t[i];
+            this.dataY[i] = data[i][0];
+        }
+    	}
+
+    	// Plot I Curve
+    	g4 = board.create('curve', [t, data_I], {strokeColor:'red', strokeWidth:'2px'});
+    	g4.updateDataArray = function() {
+        var data = ode();
+        this.dataX = [];
+        this.dataY = [];
+        for(var i=0; i<data.length; i++) {
+            this.dataX[i] = t[i];
+            this.dataY[i] = data[i][1];
+        }
+    	}
+
+	// Plot R Curve
+    	g5 = board.create('curve', [t, data_R], {strokeColor:'green', strokeWidth:'2px'});
+    	g5.updateDataArray = function() {
+        var data = ode();
+        this.dataX = [];
+        this.dataY = [];
+        for(var i=0; i<data.length; i++) {
+            this.dataX[i] = t[i];
+            this.dataY[i] = data[i][2];
+        }
+    	}
+
+    </script>
+  </body>
+</html>
