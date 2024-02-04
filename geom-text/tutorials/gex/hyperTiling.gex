@@ -1,0 +1,28 @@
+#Geometry Explorer Slate File V2.0
+panel type = poincare;
+
+ turtlecontroller("", [] );
+sethyperbounds("p",-1.1, 1.1, -1.1, 1.1);
+sethyperbounds("k",-1.1, 1.1, -1.1, 1.1);
+sethyperbounds("h",-1.1, 1.1, -1.1, 1.1);
+sethypergraphicsmodel("p");
+setprimID(point(0.0000000000,0.0000000000,0),32);
+ setprimlabel(prim(32),"A");
+ setlabelvisible(prim(32),true);
+setprimID(translate(0.8424820815,0.0000000000,"p"),33);
+setprimID(point(prim(32) , prim(33)),34);
+ setprimlabel(prim(34),"B");
+ setlabelvisible(prim(34),true);
+setprimID(line(prim(32) ,prim(34)),35);
+ setprimlabel(prim(35),"a");
+setprimID(rotate(prim(32),72.0000000000),36);
+setprimID(line(prim(35) , prim(36)),37);
+ setprimlabel(prim(37),"b");
+setprimID(rotate(prim(34),-45.0000000000),38);
+setprimID(line(prim(35) , prim(38)),39);
+ setprimlabel(prim(39),"c");
+setprimID(geomintersect(prim(37) ,prim(39)),40);
+ setchildrenprimIDs(prim(40), [41]);
+ setprimlabel(prim(41),"C");
+ setlabelvisible(prim(41),true);
+setvisible([prim(35), prim(39), prim(37)],false);
