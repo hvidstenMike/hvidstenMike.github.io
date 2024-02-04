@@ -1,0 +1,125 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.61 [en] (X11; U; Linux 2.2.13 i686) [Netscape]">
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EF" vlink="#52188C" alink="#FF0000">
+
+<center>
+<h3>
+Turtles and the Geometry of Plants</h3></center>
+<i>In this project we will investigate a way of modeling the geometry of
+plants using L-systems. The goal of this project is for students to see
+how the geometry of nature can be modeled using a very clever idea of re-writing
+grammatical sentences.</i>
+<p><b>Introduction</b>: What makes many plants hard to represent with simple
+geometric figures like circles and lines is their branching structure.&nbsp;
+A branch of a tree often looks much like the tree itself, and a branch's
+sub-branches look like the branch itself, etc.&nbsp; To model branching,
+we need a way to represent the branching structure itself as a blueprint,
+much like the DNA molecule is a blueprint for human growth.&nbsp; We will
+use the turtle geometry capability of Geometry Explorer to carry out blueprint
+instructions.
+<p>1. Start up Geometry Explorer.&nbsp; To create a turtle first we need
+to create a turning angle and a heading vector for the turtle. These will
+control how the turtle turns and moves forward.&nbsp; To create the turning
+angle and heading vector create an angle ABC and a segment DE as shown
+below.
+<center>
+<p><img SRC="turtle1.gif" BORDER=1 height=144 width=131></center>
+
+<p>2.&nbsp;&nbsp; To define the turn angle for the turtle select points
+A, B, and C (in that order) and then choose "Turtle Turn Angle" under the
+"Turtle" menu.&nbsp; To define the heading vector select D and E and choose
+"Turtle Heading Vector" under the "Turtle" menu.&nbsp; Now, we can create
+a turtle.&nbsp; The turtle needs to know where it is starting from, so
+create a point (F in the figure below) and then select this point and choose
+"Create Turtle at Point" under the "Turtle" menu. A nice green little turtle
+will popup at F.&nbsp; It will be pointing in the direction of the heading
+vector.&nbsp; A "Turtle Controller" dialog box will also popup.&nbsp; This
+is the main controlling mechanism for our turtle.&nbsp; try hitting the
+buttons in the "Turtle Control" group (e.g Back, Pop, etc) to see how we
+can make the turtle travel around.&nbsp; Then, undo your actions until
+the turtle is back at F.
+<center>
+<p><img SRC="turtle2.gif" BORDER=1 height=481 width=546></center>
+
+<p>3.&nbsp; To create a branching structure blueprint, we will use symbols
+to represent turtle actions.&nbsp; "F"&nbsp;will represent draw forward,
+"+" and "-" will represent turning left and right and "[" and "]" will
+represent the push and pop action.&nbsp; When we do a "push" we store the
+turtle's location. When we do a "pop" the turtle immediately returns to
+that location.&nbsp; We will also use a symbol "X" to denote a virtual
+node of the plant that we are trying to create.&nbsp; Think of this as
+being the potential growth of the plant at a branching node. Thus, initially
+the plant as a seed can be represented by "X" itself as there are no branches.&nbsp;&nbsp;
+During the first period of growth suppose that the plant produces branches
+as listed below.
+<center>
+<p><img SRC="turtle3.gif" BORDER=1 height=185 width=132></center>
+
+<p>4.&nbsp;&nbsp; How can we represent this using our symbolic language?&nbsp;
+Well, it is clear that the plant grew in such a way that three new branch
+nodes were created from the original potential node at F.&nbsp; Thus, if
+we started with "X" by itself, we must have replaced X with three new X's.&nbsp;
+Also, these branches were created at an angle to the main branch, so there
+needs to be some turning by the turtle.&nbsp; Finally, each new branch
+has length of 2, if we consider one move forward to be a unit length for
+the turtle.&nbsp; What kind of a "sentence" will represent this plant?&nbsp;
+Consider the following:
+<center>X = F[+X]F[-X]+X
+<br>&nbsp;&nbsp; F = FF</center>
+What the first equation represents is that we will replace the X node by
+the sentence
+<br>F[+X]F[-X]+X.&nbsp;&nbsp; Thus, the replacement will have a stalk of
+length 1 ("F") a new branch node turned to the left and independent of
+the previous F ("[+X]"), a second length of main stalk ("F"), a second
+branch node coming off the stalk at an angle to the right ("[-X]"), and
+finally a third branch coming off the top at an angle to the left.
+<p>The second equation just says that a length of stalk will grow twice
+as long in the next generation.
+<br>Putting this all together, we have in these two equations a blueprint
+for the growth of the plant. Let's see how this works.
+<p>5.&nbsp; In the "Turtle Controller" window click on the "Grammar Turtle"
+tab to get the grammar controller for the turtle.&nbsp; Type in "X" for
+the axiom, and the two equations above in the "Productions" window, and
+1 in the "Rewrite" box, and hit re-write.&nbsp; The axiom "X" will get
+replaced according to the rules in the Production area.&nbsp; Now, hit
+the "Turtle Interpret"&nbsp; button and watch the turtle interpret these
+commands.
+<center>
+<p><img SRC="turtle4.gif" BORDER=1 height=485 width=544></center>
+
+<p>6.&nbsp;&nbsp; We did not get the branches yet, as the three new X's
+are <i>potential</i> branches.&nbsp; Undo the turtle back to F again.&nbsp;
+Then, in the grammar window type in "2" for the rewrite level and hit rewrite.&nbsp;
+Look at the new sentence and convince yourself that the level 1 sentence
+was replaced correctly. Then, hit "Turtle Interpret" again to see the plant
+starting to take shape.
+<center>
+<p><img SRC="turtle5.gif" BORDER=1 height=487 width=596></center>
+
+<p>7.&nbsp; Undo the turtle back to F one last time. Then, use a rewrite
+level of 3 and have the turtle interpret this.&nbsp; To get a nicer picture
+let's hide all of the points. Choose "Hide All -> Points" under the "View"
+menu. We can clearly see the outline of a plant structure here, without
+the leaves.
+<center>
+<p><img SRC="turtle6.gif" BORDER=1 height=484 width=629></center>
+
+<p>8. Try out your own version of an axiom and rewrite rules to see what
+kinds of plants you can model. This method of using grammatical sentences
+and re-writing to model plants was originally discovered by a fellow named
+Lindenmayer, and thus this system of modeling plants has come to be known
+as the "L-System".
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

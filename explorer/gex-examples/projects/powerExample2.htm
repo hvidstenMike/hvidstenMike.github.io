@@ -1,0 +1,110 @@
+<HTML>
+<HEAD>
+<TITLE>Geometry Explorer: Untitled</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+<p>
+ <hr>
+<font size = "2">This construction was created using <a href="http://www.gac.edu/~hvidsten/explorer/index.html">Geometry Explorer.</a>Type "r" in the applet panel to reset the construction. 
+ <hr>
+ </p>
+<APPLET code= "appletDisplay.GEX.class" codebase= "." width = "419" height = "399" archive="Gex.jar">
+<PARAM name = "panelType" value = "euclidean">
+<PARAM name = "sidePanelWidth" value = "20">
+<PARAM name = "discontinuityCheck" value = "false">
+<PARAM name = "createToolsVisible" value = "true">
+<PARAM name = "editMenuVisible" value = "true">
+<PARAM name = "viewMenuVisible" value = "true">
+<PARAM name = "constructListVisible" value = "false">
+<PARAM name = "colorChoiceVisible" value = "false">
+<PARAM name = "measureListVisible" value = "true">
+<PARAM name = "transformListVisible" value = "false">
+<PARAM name = "miscListVisible" value = "false">
+<PARAM name = "graphListVisible" value = "false">
+<PARAM name = "turtleListVisible" value = "false">
+<PARAM name = "hyperModelMenuVisible" value = "false">
+<PARAM name = "geometryCode" value = "turtlecontroller(%22%22, [] );
+ setgraphkeys( [2, 5, 6, 7]);
+ setgraphat(0.0000000000,0.0000000000);
+ setgraphunitat(1.0000000000);
+ setgraphgridvisible(false);
+ setgraphgridcross(true);
+ setgraphgridtype(0);
+ setgraphvisible(%22axisx%22,false);
+ setgraphvisible(%22axisy%22,false);
+ setgraphvisible(%22ticx%22,false);
+ setgraphvisible(%22ticy%22,false);
+ setgraphvisible(%22labelx%22,false);
+ setgraphvisible(%22labely%22,false);
+ setgraphticdigits(%22x%22,1);
+ setgraphticdigits(%22y%22,0);
+ setcolor(%22grid%22,color(0,0,0));
+ setcolor(%22ticx%22,color(0,0,0));
+ setcolor(%22ticy%22,color(0,0,0));
+ setgraphticunitstring(%22x%22,%22%22);
+ setgraphticunitstring(%22y%22,%22%22);
+ setfont(%22gridx%22,%22Dialog%22,0,9);
+ setfont(%22gridy%22,%22Dialog%22,0,9);
+ setpenstyle(%22graph%22, 1.0, 10.0, 0.0, [1.0, 0.0]);
+ setpointsize(prim(2),3);
+ setprimlabel(prim(2),%22origin%22);
+ setprimlabel(prim(6),%22xaxis%22);
+ setprimlabel(prim(7),%22yaxis%22);
+setprimID(point(0.8575197889,0.1978891821,0),10);
+ setpointsize(prim(10),3);
+ setprimlabel(prim(10),%22O%22);
+ setlabelvisible(prim(10),true);
+setprimID(point(2.8627968338,0.2770448549,0),11);
+ setpointsize(prim(11),3);
+ setprimlabel(prim(11),%22R%22);
+ setlabelvisible(prim(11),true);
+setprimID(circle(prim(10) , prim(11)),12);
+ setprimlabel(prim(12),%22C%22);
+ setlabelvisible(prim(12),true);
+ setlabelparams(prim(12),[0.18333333333333332, 4.689665619543049]);
+setprimID(point(-3.8654353562,0.0659630607,0),23);
+ setpointsize(prim(23),3);
+ setprimlabel(prim(23),%22P%22);
+ setlabelvisible(prim(23),true);
+ setlabelparams(prim(23),[1.0, 12.0]);
+setprimID(point(3.5751978892,1.9656992084,0),27);
+ setprimlabel(prim(27),%22D%22);
+setprimID(ray(prim(23) ,prim(27)),28);
+ setprimlabel(prim(28),%22b%22);
+setprimID(point(4.0501319261,-0.6992084433,0),29);
+setprimID(ray(prim(23) ,prim(29)),30);
+ setprimlabel(prim(30),%22c%22);
+setprimID(geomintersect(prim(28) ,prim(12)),31);
+ setchildrenprimIDs(prim(31), [32, 33]);
+ setprimlabel(prim(32),%22P2%22);
+ setlabelvisible(prim(32),true);
+ setlabelparams(prim(32),[-7.0, -18.0]);
+ setprimlabel(prim(33),%22P1%22);
+ setlabelvisible(prim(33),true);
+ setlabelparams(prim(33),[-13.0, -9.0]);
+setprimID(geomintersect(prim(30) ,prim(12)),34);
+ setchildrenprimIDs(prim(34), [35, 36]);
+ setprimlabel(prim(35),%22Q2%22);
+ setlabelvisible(prim(35),true);
+ setprimlabel(prim(36),%22Q1%22);
+ setlabelvisible(prim(36),true);
+ setlabelparams(prim(36),[-11.0, 8.0]);
+setprimID(distance(prim(23) ,prim(33)),68);
+ setmeasureposition(prim(68),-4.868073878627968,4.8680738786279685);
+setprimID(distance(prim(23) ,prim(32)),69);
+ setmeasureposition(prim(69),-4.841688654353561,4.076517150395777);
+setprimID(distance(prim(23) ,prim(36)),70);
+ setmeasureposition(prim(70),-0.8311345646437984,4.86807387862797);
+setprimID(distance(prim(23) ,prim(35)),71);
+ setmeasureposition(prim(71),-0.8047493403693915,4.050131926121372);
+setprimID(compoundmeasure(uneval(%22measurevalue%22,(measurevalue(prim(68))*measurevalue(prim(69)))),%22Dist(P,P1) *Dist(P,P2) %22,[prim(68),prim(69)]),72);
+ setmeasureposition(prim(72),-2.572559366754617,-2.8891820580474943);
+setprimID(compoundmeasure(uneval(%22measurevalue%22,(measurevalue(prim(70))*measurevalue(prim(71)))),%22Dist(P,Q1) *Dist(P,Q2) %22,[prim(70),prim(71)]),73);
+ setmeasureposition(prim(73),-2.625329815303429,-3.680738786279683);
+">
+</APPLET>
+<p>
+ <hr>
+
+</BODY>
+</HTML>

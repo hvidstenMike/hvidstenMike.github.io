@@ -1,0 +1,159 @@
+<HTML>
+<HEAD>
+<TITLE>Geometry Explorer: osculatingCircle.gex</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+<p>
+ <hr>
+<font size = "2">This construction was created using <a href="http://www.gac.edu/~hvidsten/explorer/index.html">Geometry Explorer.</a>Type "r" in the applet panel to reset the construction. 
+ <hr>
+ </p>
+<APPLET code= "appletDisplay.GEX.class" codebase= "." width = "419" height = "399" archive="Gex.jar">
+<PARAM name = "panelType" value = "euclidean">
+<PARAM name = "sidePanelWidth" value = "20">
+<PARAM name = "discontinuityCheck" value = "false">
+<PARAM name = "createToolsVisible" value = "true">
+<PARAM name = "editMenuVisible" value = "true">
+<PARAM name = "viewMenuVisible" value = "true">
+<PARAM name = "constructListVisible" value = "false">
+<PARAM name = "colorChoiceVisible" value = "false">
+<PARAM name = "measureListVisible" value = "true">
+<PARAM name = "transformListVisible" value = "false">
+<PARAM name = "miscListVisible" value = "false">
+<PARAM name = "graphListVisible" value = "false">
+<PARAM name = "turtleListVisible" value = "false">
+<PARAM name = "hyperModelMenuVisible" value = "false">
+<PARAM name = "geometryCode" value = "turtlecontroller(%22F%22, [%22F=F+F--F+F%22] );
+resizepanel(-5.0, 5.0, -5.0, 5.0);
+ setgraphkeys( [2, 5, 6, 7]);
+ setgraphat(0.1920844327,-0.2807387863);
+ setgraphunitat(1.0000000000);
+ setgraphgridvisible(false);
+ setgraphgridcross(true);
+ setgraphgridtype(0);
+ setgraphvisible(%22axisx%22,true);
+ setgraphvisible(%22axisy%22,true);
+ setgraphvisible(%22ticx%22,true);
+ setgraphvisible(%22ticy%22,true);
+ setgraphvisible(%22labelx%22,true);
+ setgraphvisible(%22labely%22,true);
+ setgraphticdigits(%22x%22,1);
+ setgraphticdigits(%22y%22,0);
+ setcolor(%22grid%22,color(0,0,0));
+ setcolor(%22ticx%22,color(0,0,0));
+ setcolor(%22ticy%22,color(0,0,0));
+ setgraphticunitstring(%22x%22,%22%22);
+ setgraphticunitstring(%22y%22,%22%22);
+ setfont(%22gridx%22,%22Dialog%22,0,9);
+ setfont(%22gridy%22,%22Dialog%22,0,9);
+ setpenstyle(%22graph%22, 1.0, 10.0, 0.0, [1.0, 0.0]);
+ setpointsize(prim(2),3);
+ setprimlabel(prim(2),%22#origin__lp7%22);
+ setprimlabel(prim(6),%22#xaxis__lp11%22);
+ setprimlabel(prim(7),%22#yaxis__lp12%22);
+setprimID(functiongraph(%22_2__lp14%22, %22sin(x)%22, -10.0, 10.0),10);
+ setprimlabel(prim(10),%22_2__lp14%22);
+setprimID(functiongraph(%22_3__lp15%22, %22cos(x)%22, -10.0, 10.0),11);
+ setcolor(prim(11),color(255,65,15));
+ setfillstyle(prim(11),color(255,65,15));
+ setprimlabel(prim(11),%22_3__lp15%22);
+setprimID(pointon(prim(6),-0.4707734147,-0.2807387863),13);
+ setpointsize(prim(13),3);
+ setprimlabel(prim(13),%22A%22);
+ setlabelvisible(prim(13),true);
+ setlabelparams(prim(13),[1.0, -16.0]);
+setprimID(pointon(prim(10),prim(13),-0.4707734147,-0.8961108087),14);
+ setpointsize(prim(14),3);
+ setprimlabel(prim(14),%22B%22);
+ setlabelvisible(prim(14),true);
+ setlabelparams(prim(14),[1.0, 11.0]);
+setprimID(pointon(prim(11),prim(13),-0.4707734147,0.5074980271),15);
+ setpointsize(prim(15),3);
+ setprimlabel(prim(15),%22C%22);
+ setlabelvisible(prim(15),true);
+ setlabelparams(prim(15),[-8.0, -14.0]);
+setprimID(tangent(prim(14)),16);
+ setcolor(prim(16),color(15,255,32));
+ setpenstyle(prim(16),1.0, 6.0, 0.0, [6.0]);
+ setfillstyle(prim(16),color(15,255,32));
+ setprimlabel(prim(16),%22a%22);
+ setlabelvisible(prim(16),true);
+ setlabelparams(prim(16),[0.11666666666666667, 3.365471039329142]);
+setprimID(tangent(prim(15)),18);
+ setcolor(prim(18),color(15,255,32));
+ setpenstyle(prim(18),1.0, 6.0, 0.0, [6.0]);
+ setfillstyle(prim(18),color(15,255,32));
+ setprimlabel(prim(18),%22b%22);
+ setlabelvisible(prim(18),true);
+ setlabelparams(prim(18),[0.13333333333333333, 2.8671175635754174]);
+setprimID(slope(prim(16)),20);
+ setprimlabel(prim(20),%22_5__lp24%22);
+ setmeasureposition(prim(20),-4.825581395348838,4.447674418604651);
+ setmeasuretext(prim(20),%22Slope%22);
+setprimID(slope(prim(18)),21);
+ setprimlabel(prim(21),%22_6__lp26%22);
+ setmeasureposition(prim(21),-4.825581395348836,3.522788024592354);
+ setmeasuretext(prim(21),%22Slope%22);
+setvisible([prim(18)],false);
+setprimID(perpendicular(prim(16) ,prim(14)),23);
+ setprimlabel(prim(23),%22c__lp29%22);
+setprimID(segment(prim(2) ,prim(5)),25);
+ setcolor(prim(25),color(255,15,15));
+ setfillstyle(prim(25),color(255,15,15));
+ setprimlabel(prim(25),%22d__lp31%22);
+setprimID(circle(prim(14), prim(25)),27);
+ setprimlabel(prim(27),%22e__lp33%22);
+setprimID(geomintersect(prim(23) ,prim(27)),28);
+ setprimlabel(prim(28),%22_9__lp34%22);
+ setchildrenprimIDs(prim(28), [29, 30]);
+ setpointsize(prim(29),3);
+ setcolor(prim(29),color(255,15,164));
+ setfillstyle(prim(29),color(255,15,164));
+ setprimlabel(prim(29),%22D%22);
+ setlabelvisible(prim(29),true);
+ setlabelparams(prim(29),[-11.0, -4.0]);
+ setpointsize(prim(30),3);
+ setprimlabel(prim(30),%22E__lp36%22);
+setvisible([prim(30), prim(27)],false);
+setvisible([prim(23)],false);
+setprimID(dilate(prim(14),prim(21)),34);
+ setprimlabel(prim(34),%22Transform34%22);
+setprimID(point(prim(29) , prim(34)),36);
+ setpointsize(prim(36),3);
+ setcolor(prim(36),color(255,15,164));
+ setfillstyle(prim(36),color(255,15,164));
+ setprimlabel(prim(36),%22F__lp41%22);
+setprimID(circle(prim(36) , prim(14)),37);
+ setprimlabel(prim(37),%22f__lp42%22);
+setvisible([prim(36), prim(37)],false);
+setprimID(compoundmeasure(uneval(%22measurevalue%22,(measurevalue(slope(prim(18))))^(-1)),%221/Slope(b) %22,[prim(21)]),39);
+ setprimlabel(prim(39),%22_15__lp44%22);
+ setmeasureposition(prim(39),0.2880131312511507,4.457906539458995);
+ setmeasuretext(prim(39),%22%22);
+setprimID(compoundmeasure(uneval(%22measurevalue%22,(measurevalue(slope(prim(18))))^(-1)),%221/Slope(b) %22,[prim(21)]),40);
+ setprimlabel(prim(40),%22d%22);
+ setmeasureposition(prim(40),0.2508897343069272,3.5567208265536485);
+ setmeasuretext(prim(40),%22%22);
+setprimID(dilate(prim(14),prim(40)),41);
+ setprimlabel(prim(41),%22Transform41%22);
+setprimID(point(prim(29) , prim(41)),43);
+ setpointsize(prim(43),3);
+ setcolor(prim(43),color(15,255,32));
+ setfillstyle(prim(43),color(15,255,32));
+ setprimlabel(prim(43),%22G%22);
+ setlabelvisible(prim(43),true);
+ setlabelparams(prim(43),[-8.0, -12.0]);
+setprimID(circle(prim(43) , prim(14)),44);
+ setprimlabel(prim(44),%22g%22);
+setvisible([prim(18)],false);
+setvisible([prim(1)],true);
+setvisible([prim(18)],false);
+setvisible([prim(29)],false);
+setvisible([prim(40)],false);
+">
+</APPLET>
+<p>
+ <hr>
+
+</BODY>
+</HTML>

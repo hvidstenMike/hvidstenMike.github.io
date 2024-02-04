@@ -1,0 +1,58 @@
+<HTML>
+<HEAD>
+<TITLE>Geometry Explorer: Untitled1</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+<p>
+ <hr>
+<font size = "2">This construction was created using <a href="http://www.gac.edu/~hvidsten/explorer/index.html">Geometry Explorer.</a>Type "r" in the applet panel to reset the construction. 
+ <hr>
+ </p>
+<APPLET code= "appletDisplay.GEX.class" codebase= "." width = "419" height = "399" archive="Gex.jar">
+<PARAM name = "panelType" value = "hyperbolic">
+<PARAM name = "sidePanelWidth" value = "20">
+<PARAM name = "discontinuityCheck" value = "false">
+<PARAM name = "createToolsVisible" value = "true">
+<PARAM name = "editMenuVisible" value = "true">
+<PARAM name = "viewMenuVisible" value = "true">
+<PARAM name = "constructListVisible" value = "false">
+<PARAM name = "colorChoiceVisible" value = "false">
+<PARAM name = "measureListVisible" value = "true">
+<PARAM name = "transformListVisible" value = "false">
+<PARAM name = "miscListVisible" value = "false">
+<PARAM name = "graphListVisible" value = "false">
+<PARAM name = "turtleListVisible" value = "false">
+<PARAM name = "hyperModelMenuVisible" value = "false">
+<PARAM name = "geometryCode" value = "turtlecontroller(%22%22, [] );
+sethypergraphicsmodel(%22p%22);
+setprimID(point(1.3337965627,225.4922989992,0),2);
+ setprimlabel(prim(2),%22A%22);
+ setlabelvisible(prim(2),true);
+setprimID(point(1.1074068800,95.1329993372,0),3);
+ setprimlabel(prim(3),%22B%22);
+ setlabelvisible(prim(3),true);
+ setlabelparams(prim(3),[10.0, -13.0]);
+setprimID(segment(prim(2) ,prim(3)),4);
+ setprimlabel(prim(4),%22a%22);
+setprimID(point(1.3537208629,350.4883832291,0),5);
+ setprimlabel(prim(5),%22C%22);
+ setlabelvisible(prim(5),true);
+setprimID(segment(prim(3) ,prim(5)),6);
+ setprimlabel(prim(6),%22b%22);
+setprimID(segment(prim(5) ,prim(2)),7);
+ setprimlabel(prim(7),%22c%22);
+setprimID(angle(prim(2) ,prim(3) ,prim(5)),14);
+ setmeasureposition(prim(14),-1.0535620052770447,1.0361477572559363);
+setprimID(angle(prim(3) ,prim(5) ,prim(2)),15);
+ setmeasureposition(prim(15),-0.3221635883905014,0.8678100263852244);
+setprimID(angle(prim(5) ,prim(2) ,prim(3)),16);
+ setmeasureposition(prim(16),0.39182058047493373,1.0477572559366755);
+setprimID(compoundmeasure(uneval(%22measurevalue%22,measurevalue(prim(14))+measurevalue(prim(15))+measurevalue(prim(16))),%22m?(A,B,C) +m?(B,C,A) +m?(C,A,B) %22,[prim(14),prim(15),prim(16)]),17);
+ setmeasureposition(prim(17),-0.7110817941952507,-0.5485488126649076);
+">
+</APPLET>
+<p>
+ <hr>
+
+</BODY>
+</HTML>

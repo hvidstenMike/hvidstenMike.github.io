@@ -1,0 +1,132 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.5 [en] (X11; I; Linux 2.1.125 i686) [Netscape]">
+</head>
+<body>
+
+<center>
+<h3>
+MC 52 Laboratory Project #5</h3></center>
+
+<center>
+<h3>
+Hyperbolic Geometry: Omega Triangles and Quadrilaterals</h3></center>
+
+<center><b>Due: Monday, November 2</b></center>
+<b>Purpose</b>: The purpose of this lab is to investigate some of the "classical"
+figures of study in hyperbolic geometry.
+<p><b>0</b>) Start up Geometry Explorer (remember that you may have to
+type "./explorer" and not just "explorer" to start up the program).&nbsp;
+If the main Geometry Explorer window is not a Hyperbolic window, go to
+the File menu and click on New and choose "Hyperbolic".
+<p><b>1</b>) In the first exercise of this lab we will look at a figure
+called an "Omega Triangle." Construct a line AB and a point C off of the
+line. Then, construct the two ultraparallels to AB through C. (select AB
+and then C and click on the parallel construction tool) The ultraparallels
+do not intersect AB in the Poincare disk. However, they do intersect at
+two points at infinity which we will call omega and omega'.
+<p>Construct a line through C that intersects AB and find the intersection
+point D (use the intersection tool).&nbsp; Then, points D and C, together
+with omega, define what we will call an <b>omega </b>or <b>ideal </b>triangle.&nbsp;
+An omega triangle is not an true triangle in hyperbolic geometry, but it
+does share some of the properties of regular triangles.&nbsp; Recall that
+in Euclidean neutral geometry that an exterior angle of a triangle is greater
+than
+<br>either opposite interior angle.&nbsp; (Euclid, Book I, Prop. 16)&nbsp;
+Since this result is neutral it must hold for hyperbolic triangles. Does
+it hold for omega triangles?
+<p>Place a point E on line DC and a point F on the right ultraparallels
+as shown. Then, measure exterior angle FCE and interior angle BDC.&nbsp;
+It appears that the exterior angle is bigger in this case. (Note that there
+really is only one angle to worry about here, as the other angle at omega
+is not really an angle) Move point C around and see whether the exterior
+angle remains larger.&nbsp; The first proof in this lab is to prove this
+relationship always holds: that exterior angle FCE is always larger than
+interior angle BDC. {Hint: Suppose not. Then, either FCE is less than BDC
+or is equal to BDC. In the first case get a contradiction to the regular
+triangle exterior angle theorem. In the second case get a contradiction
+by dropping a perpendicular down from the midpoint of CD to AB and 
+showing that the angle of parallelism is 90 degrees.]
+<center><img SRC="omega.gif" height=429 width=428></center>
+
+<p><b>2</b>) In the second part of this lab we will look at a congruence
+result for omega triangles.&nbsp; As shown below, construct a line AB and
+a point C off of AB. Then, construct the ultraparallels to AB at C and
+hide the left ultraparallel. Place a point D on the right ultraparallel.&nbsp;
+Next, construct another line EF. We will now construct a point G such that
+angle EFG is equal to angle BAC and length FG is equal to length AC. To
+do this first select points B,A, and C (in that order) and then choose
+"Angle" under the "Set As" menu in the Transform panel.&nbsp; Then, select
+point F and choose "Center" under the "Set As" menu. We have now defined
+a hyperbolic rotation with center of rotation F and angle of rotation BAC.
+We rotate point E by selecting E and then hitting the rotate button in
+the transform panel.&nbsp; Call the rotated point P. Note that this point
+P is not necessarily the point G that is desired, although P lies in the
+same direction as G.&nbsp; Construct ray FP. To find G, we construct a
+circle at F of radius AC. (Select F and then segment CD and hit the circle
+<b>construction
+</b>tool) Then, find the intersection of this circle with ray FP. This
+is the desired point G.
+<p>To summarize we have two omega triangles AC(omega1) and FG(omega2) such
+that a corresponding side and angle are congruent. Now measure the other
+interior angles (ACD and FGH). Note that they are equal.&nbsp; Drag point
+C around. Does the equality of angles persist?&nbsp; Prove this SA congruence
+theorem for omega triangles.
+<br>[Hint: Suppose angle FGH is greater than ACD. Find two congruent "regular"
+triangles that lead to a contradiction.]
+<center>
+<p><img SRC="omeg2.gif" height=426 width=424></center>
+
+<p><br>
+<p><b>3</b>) In the third part of the lab we will consider a special four-sided
+figure called a Saccheri Quadrilateral. This quadrilateral has two right
+angles on the base and two congruent sides from the base.&nbsp; To construct
+a Saccheri Quadrilateral, we start by constructing a segment AB to serve
+as the base. Then, construct two perpendiculars to AB at points A and B.
+Next, attach a point C to the perpendicular on the right. Hide the perpendicular
+on the right and construct segment BC.&nbsp; Next select point A and segment
+BC and use the circle <b>constructor </b>tool to construct a circle at
+A of radius equal to the length of segment BC.&nbsp; Find the intersection
+of this circle with the left perpendicular. Hide the left perpendicular,
+the lower intersection point, and the circle. Finally, construct the segment
+AD at the left and the segment CD, finishing the Saccheri construction.&nbsp;
+All of the construction lines and circles are shown in the figure below
+on the right. At the left is the Saccheri quad with construction aids hidden.
+<p><img SRC="saccherri2.gif" height=342 width=342><img SRC="saccherri1.gif.gif" height=343 width=343>
+<p>Next, find the midpoints E and F of sides AB and CD. Measure angles
+FEA and DEF.&nbsp; Prove that these angles are always right angles.
+<p><b>4</b>) Measure the summit angles ADF and FCB.&nbsp; Move point C
+around and note that the summit angles are always congruent and acute.&nbsp;
+Prove that the summit angles are always congruent.
+<p><b>5</b>) Prove that the summit angles are always acute. Here is a start
+at the proof: (Fill in the <i>Show </i>parts)
+<ul>At C find an ultraparallel (call it l) to AB on the right. Let the
+ideal point be omega.&nbsp; The ultraparallel to AB through D (call it
+m) will also be ultraparallel to l (using the transitivity result from
+class)
+<br>Now, DC must be an parallel (non-intersecting line) to AB. (<i>Show</i>)
+Thus, the right ultraparallels through D and C must lie within the angles
+ADC and BCE, where E is a point on DC to the right of C.&nbsp; Next, angles
+AD(omega) and BC(omega) are equal. (<i>Show</i>) Furthermore, since l and
+m are ultraparallel then in omega triangle CD(omega) exterior angle EC(omega)
+must be greater than interior angle CD(omega). Finally, this proves that
+angles ADC and BCD are less than 90 (<i>Show</i>).
+<center><img SRC="saccherri3.gif" height=184 width=349></center>
+</ul>
+
+<p><br><b>6</b>) Define a Lambert quadrilateral to be a quadrilateral having
+three right angles.&nbsp; Prove that the fourth angle must be acute.
+<p><b>Summary</b>: Lambert and Saccheri tried to prove Euclid's fifth axiom
+by using their quadrilaterals to prove that the summit angles in the Saccheri
+quad (or the fourth angle for Lambert) must be right angles. This would
+then imply Euclid's fifth axiom.&nbsp; They both of course failed, but
+they were not bold enough to accept the possibility that a new geometry
+different than Euclidean geometry was possible.
+<p>We have enough tools at our disposal now to prove a very interesting
+result: that the sum of the angles in a right triangle is less than two
+right angles.&nbsp; Think about how you might prove this. We will look
+at the proof later in class.
+</body>
+</html>

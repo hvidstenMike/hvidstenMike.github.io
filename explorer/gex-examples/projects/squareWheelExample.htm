@@ -1,0 +1,124 @@
+<HTML>
+<HEAD>
+<TITLE>Geometry Explorer: squareWheel.gex</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+<p>
+ <hr>
+<font size = "2">This construction was created using <a href="http://www.gac.edu/~hvidsten/explorer/index.html">Geometry Explorer.</a>Type "r" in the applet panel to reset the construction. To activate a control button hold down the control key while clicking on the control button. To speed up an animation type ">", to slow it down type "<". 
+<hr>
+ </p>
+<APPLET code= "GEX.class" codebase= "Gex" width = "344" height = "344" archive="Geometry.zip">
+<PARAM name = "panelType" value = "euclidean">
+<PARAM name = "discontinuityCheck" value = "true">
+<PARAM name = "geometryCode" value = " setgraphkeys( [%22#origin__lp32%22, %221__lp35%22, %22#xaxis__lp36%22, %22#yaxis__lp37%22]);
+ setgraphat(-2.519526295411154,-3.612242264026668);
+ setgraphunitat(1.7713498622589545);
+ setgraphvisible(true);
+functiongraph(%22f%22, %222-(exp(x)+exp(-x))/2%22, -0.881373587, 0.881373587);
+ setprimlabel(lastresult(), %22_2__lp39%22);
+ setfunctionresolution(prim(%22_2__lp39%22), 60);
+dilate(prim(%22#origin__lp32%22),0.8813735870,[prim(%221__lp35%22)]);
+ setprimlabel(lastresult(), %22_3__lp40%22);
+ setchildrenlabels(prim(%22_3__lp40%22), [%22A__lp41%22]);
+ setlabelvisible(prim(%22A__lp41%22),true);
+ setlabelat(prim(%22A__lp41%22),130, 302);
+reflect(prim(%22#yaxis__lp37%22) ,[prim(%22A__lp41%22)]);
+ setprimlabel(lastresult(), %22_4__lp42%22);
+ setchildrenlabels(prim(%22_4__lp42%22), [%22-A__lp43%22]);
+ setlabelvisible(prim(%22-A__lp43%22),true);
+ setlabelat(prim(%22-A__lp43%22),37, 302);
+translate(prim(%22-A__lp43%22) ,prim(%22A__lp41%22) ,[prim(%22_2__lp39%22)]);
+ setprimlabel(lastresult(), %22_5__lp44%22);
+ setchildrenlabels(prim(%22_5__lp44%22), [%22_6__lp45%22]);
+translate(prim(%22-A__lp43%22) ,prim(%22A__lp41%22) ,[prim(%22_6__lp45%22)]);
+ setprimlabel(lastresult(), %22_7__lp46%22);
+ setchildrenlabels(prim(%22_7__lp46%22), [%22_8__lp47%22]);
+translate(prim(%22-A__lp43%22) ,prim(%22A__lp41%22) ,[prim(%22_8__lp47%22)]);
+ setprimlabel(lastresult(), %22_9__lp48%22);
+ setchildrenlabels(prim(%22_9__lp48%22), [%22_10__lp49%22]);
+translate(prim(%22A__lp41%22) ,prim(%22-A__lp43%22) ,[prim(%22_2__lp39%22)]);
+ setprimlabel(lastresult(), %22_11__lp50%22);
+ setchildrenlabels(prim(%22_11__lp50%22), [%22_12__lp51%22]);
+rotate(prim(%22#origin__lp32%22),1.5707963268,[prim(%221__lp35%22)]);
+ setprimlabel(lastresult(), %22_17__lp56%22);
+ setchildrenlabels(prim(%22_17__lp56%22), [%22C__lp57%22]);
+translate(prim(%22#origin__lp32%22) ,prim(%22C__lp57%22) ,[prim(%22C__lp57%22)]);
+ setprimlabel(lastresult(), %22_18__lp58%22);
+ setchildrenlabels(prim(%22_18__lp58%22), [%22D__lp59%22]);
+perpendicular(prim(%22#yaxis__lp37%22) ,prim(%22D__lp59%22));
+ setprimlabel(lastresult(), %22a__lp60%22);
+segment(prim(%22C__lp57%22) ,prim(%22D__lp59%22));
+ setprimlabel(lastresult(), %22b__lp62%22);
+setcolor([ prim(%22b__lp62%22)], color(255,15,15));
+dilate(prim(%22#origin__lp32%22),1.1221997000,[prim(%221__lp35%22)]);
+ setprimlabel(lastresult(), %22_33__lp72%22);
+ setchildrenlabels(prim(%22_33__lp72%22), [%22B__lp73%22]);
+ setlabelvisible(prim(%22B__lp73%22),true);
+ setlabelat(prim(%22B__lp73%22),159, 302);
+setcolor([ prim(%22B__lp73%22)], color(48,15,255));
+setcolor([ prim(%22A__lp41%22)], color(255,15,15));
+setcolor([ prim(%22-A__lp43%22)], color(255,15,15));
+segment(prim(%22#origin__lp32%22) ,prim(%22B__lp73%22));
+ setprimlabel(lastresult(), %22c__lp77%22);
+pointon(prim(%22a__lp60%22),-2.5195262954,-0.0695425395);
+ setprimlabel(lastresult(), %22F__lp105%22);
+circle(prim(%22F__lp105%22) ,prim(%22c__lp77%22));
+ setprimlabel(lastresult(), %22d__lp108%22);
+circle(prim(%22F__lp105%22) ,prim(%22b__lp62%22));
+ setprimlabel(lastresult(), %22e__lp109%22);
+pointon(prim(%22d__lp108%22),-0.5317180114,-0.0695425395);
+ setprimlabel(lastresult(), %22G__lp110%22);
+ray(prim(%22F__lp105%22) ,prim(%22G__lp110%22));
+ setprimlabel(lastresult(), %22f__lp111%22);
+geomintersect(prim(%22f__lp111%22) ,prim(%22e__lp109%22));
+ setprimlabel(lastresult(), %22_45__lp112%22);
+ setchildrenlabels(prim(%22_45__lp112%22), [%22H__lp113%22, %22I__lp114%22]);
+perpendicular(prim(%22f__lp111%22) ,prim(%22H__lp113%22));
+ setprimlabel(lastresult(), %22g__lp115%22);
+rotate(prim(%22F__lp105%22),1.5707963268,[prim(%22g__lp115%22)]);
+ setprimlabel(lastresult(), %22_46__lp117%22);
+ setchildrenlabels(prim(%22_46__lp117%22), [%22J__lp118%22,%22J__lp118%22,%22K__lp119%22,%22K__lp119%22,%22h__lp120%22]);
+geomintersect(prim(%22g__lp115%22) ,prim(%22h__lp120%22));
+ setprimlabel(lastresult(), %22_47__lp121%22);
+ setchildrenlabels(prim(%22_47__lp121%22), [%22J__lp122%22]);
+setvisible([ prim(%22h__lp120%22), prim(%22J__lp118%22), prim(%22g__lp115%22)],false);
+setvisible([ prim(%22f__lp111%22)],false);
+setcolor([ prim(%22G__lp110%22)], color(255,15,15));
+rotate(prim(%22F__lp105%22),1.5707963268,[prim(%22J__lp122%22)]);
+ setprimlabel(lastresult(), %22_51__lp126%22);
+ setchildrenlabels(prim(%22_51__lp126%22), [%22K__lp127%22]);
+rotate(prim(%22F__lp105%22),1.5707963268,[prim(%22K__lp127%22)]);
+ setprimlabel(lastresult(), %22_52__lp128%22);
+ setchildrenlabels(prim(%22_52__lp128%22), [%22L__lp129%22]);
+rotate(prim(%22F__lp105%22),1.5707963268,[prim(%22L__lp129%22)]);
+ setprimlabel(lastresult(), %22_53__lp130%22);
+ setchildrenlabels(prim(%22_53__lp130%22), [%22M__lp131%22]);
+segment(prim(%22J__lp122%22) ,prim(%22K__lp127%22));
+ setprimlabel(lastresult(), %22i__lp132%22);
+segment(prim(%22K__lp127%22) ,prim(%22L__lp129%22));
+ setprimlabel(lastresult(), %22j__lp133%22);
+segment(prim(%22L__lp129%22) ,prim(%22M__lp131%22));
+ setprimlabel(lastresult(), %22k__lp134%22);
+segment(prim(%22M__lp131%22) ,prim(%22J__lp122%22));
+ setprimlabel(lastresult(), %22l__lp135%22);
+animate(prim(%22G__lp110%22), %22b%22);
+ setprimlabel(lastresult(), %22null__lp75%22);
+animate(prim(%22F__lp105%22), %22b%22);
+ setprimlabel(lastresult(), %22null__lp76%22);
+pointon(prim(%22a__lp60%22),-4.0102595365,-0.0695425395);
+ setprimlabel(lastresult(), %22N__lp76%22);
+setvisible([ prim(%22M__lp131%22)],false);
+setvisible([ prim(%22J__lp122%22)],false);
+setvisible([ prim(%22K__lp127%22)],false);
+setvisible([ prim(%22d__lp108%22), prim(%22e__lp109%22)],false);
+setvisible([ prim(%22L__lp129%22), prim(%22C__lp57%22), prim(%22H__lp113%22)],false);
+setvisible([ prim(%22G__lp110%22), prim(%22N__lp76%22)],false);
+setvisible([ prim(%22N__lp76%22), prim(%22G__lp110%22)],false);
+animatecontrol(115,56,40, [prim(%22null__lp76%22),prim(%22null__lp75%22)]);
+ setprimlabel(lastresult(), %22Animate__lp81%22);
+setvisible([ prim(%22G__lp110%22)],false);
+">
+</APPLET>
+</BODY>
+</HTML>
