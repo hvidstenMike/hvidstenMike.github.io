@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>Help Geo Get Home</title>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js">
+    MathJax.Hub.Config({
+      config: ["MMLorHTML.js"],
+      jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+      extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+      TeX: {
+        extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+      },
+      tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
+      "HTML-CSS":{availableFonts:["STIX", "TeX"], preferredFont: "STIX"}
+    });
+    </script>
+    <link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css">
+    <script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+    <script src="http://code.jquery.com/jquery-1.4.4.min.js" type="text/javascript"></script>
+    <script>
+      function focusTest(el)
+      {
+       el.select();
+      }
+      (function() { 
+         $(document).ready(function() {
+            $("img.rollover").hover(
+              function() { 
+                //console.log("hover- title="+this.title+",  createSel="+JGEX.MGR.createBtnSelected);
+                this.src = this.src.replace("_off", "_on");
+              },
+              function() { 
+                this.src = this.src.replace("_on", "_off");
+              });
+          });
+
+     })();
+
+    </script>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  </head>
+  <body>In the window below we see Geo trying to get to his
+    birdhouse home.&nbsp; At the left of the window, there are buttons depicting
+    simple transformations.&nbsp; By clicking on these buttons we can make Geo
+    move by that transformation.&nbsp; See if you can help Geo to get to his
+    house and see if you can do it in the fewest number of steps, as he is tired
+    out from doing so much geometry!&nbsp; <br>
+    <br>
+    As you move Geo around, a running list of the transformations you have used
+    appears to the left of the window.&nbsp; Note that these are listed as they
+    are applied to Geo - they are applied from the <span style="font-style: italic; font-weight: bold;">back
+      </span>of the list to the <span style="font-weight: bold; font-style: italic;">front</span>.&nbsp;
+    <br><br>
+    For a new example, click "New". To undo a transformation, click
+    "Undo."&nbsp; To see a solution (not guaranteed to be optimal!), click
+    "Show."&nbsp; Every solution is possible using at most 5 transformations.
+    See if you can do it in less!<br>
+    <br>
+    <br>
+    <!--<input type="file" id="input" onchange="handleFiles(this.files)">-->
+    <div id="app-box" style="width:750px; height: 500px;">
+      <div id="tool-panel" style="float:left; width:200px;">
+        <div id="button-panel" style="margin-right:20px; padding:5px; border-style: solid; border-width:1px; border-color: blue;">
+          <span class="button" id="rot-ccw-btn" onclick="doButtonClicked('rot-ccw')"
+
+            onmouseover="buttonOver('rot-ccw')" onmouseout="buttonOut('rot-ccw')">
+            <img src="images/rot-ccw32_off.png" class="rollover" alt="" title="Rotate  90 °">
+          </span> <span class="button" id="rot-cw-btn" onclick="doButtonClicked('rot-cw')"
+
+            onmouseover="buttonOver('rot-cw')" onmouseout="buttonOut('rot-cw')">
+            <img src="images/rot-cw32_off.png" class="rollover" alt="" title="Rotate  -90 °">
+          </span> <span class="button" id="refl-x-btn" onclick="doButtonClicked('refl-x')"
+
+            onmouseover="buttonOver('refl-x')" onmouseout="buttonOut('refl-x')">
+            <img src="images/reflectx32_off.png" class="rollover" alt="" title="Reflect about x-axis">
+          </span> <span class="button" id="refl-y-btn" onclick="doButtonClicked('refl-y')"
+
+            onmouseover="buttonOver('refl-y')" onmouseout="buttonOut('refl-y')">
+            <img src="images/reflecty32_off.png" class="rollover" alt="" title="Reflect about y-axis">
+          </span> <span class="button" id="trans-left-btn" onclick="doButtonClicked('trans-left')"
+
+            onmouseover="buttonOver('trans-left')" onmouseout="buttonOut('trans-left')">
+            <img src="images/translate-left32_off.png" class="rollover" alt="" title="Translate left 1">
+          </span> <span class="button" id="translate-right-btn" onclick="doButtonClicked('trans-right')"
+
+            onmouseover="buttonOver('trans-right')" onmouseout="buttonOut('trans-right')">
+            <img src="images/translate-right32_off.png" class="rollover" alt=""
+
+              title="Translate right 1"> </span> <span class="button" id="translate-up-btn"
+
+            onclick="doButtonClicked('trans-up')" onmouseover="buttonOver('trans-up')"
+
+            onmouseout="buttonOut('trans-up')"> <img src="images/translate-up32_off.png"
+
+              class="rollover" alt="" title="Translate up 1"> </span> <span class="button"
+
+            id="translate-down-btn" onclick="doButtonClicked('trans-down')" onmouseover="buttonOver('trans-down')"
+
+            onmouseout="buttonOut('trans-down')"> <img src="images/translate-down32_off.png"
+
+              class="rollover" alt="" title="Translate down 1"> </span> </div>
+        <hr>
+        <div style="width:180px; height:100px; overflow:auto; border-style: solid; border-width:1px; border-color: blue;">
+          Transform List:<br>
+          <p id="tlist"></p>
+        </div>
+        <hr>
+        <div style="height:20px;"><button value="Undo" name="Undo" onclick="undo()">Undo</button>
+          <button value="New" name="New" onclick="makeGame('new')">New</button>
+          <button value="Solve" name="Solve" onclick="showSolution()">Show</button>
+        </div>
+        <div style="height:20px;"></div>
+        <div style="width:180px; height:100px; overflow:auto; ">
+          <p id="sol_list"></p>
+        </div>
+      </div>
+      <div id="box" class="jxgbox" style="float:left; width: 500px; height: 500px;"></div>
+    </div>
+    <script type="text/javascript" src="js/transformGame.js"></script>
+  </body>
+</html>
